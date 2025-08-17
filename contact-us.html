@@ -109,6 +109,8 @@
   <div class="container-full w-container">
     <div class="contact-form">
       <h6 class="contact-title">Send Us Your Questions!</h6>
+
+      <!-- ✅ Pure HTML form (not Webflow) -->
       <form id="contact-form">
         <div class="form-input-wrap">
           <div class="input-group input-full-width">
@@ -142,7 +144,7 @@
 
 <script>
   document.getElementById("contact-form").addEventListener("submit", function (e) {
-    e.preventDefault(); // stop normal form submission
+    e.preventDefault(); // stop page reload
 
     // Get values
     let name = document.getElementById("Name").value;
@@ -150,7 +152,7 @@
     let email = document.getElementById("Email").value;
     let message = document.getElementById("Message").value;
 
-    // WhatsApp number (without + sign)
+    // WhatsApp number (without +)
     let whatsappNumber = "923205082670";
 
     // Encode message
@@ -160,7 +162,7 @@
                `Email: ${email}%0A` +
                `Message: ${message}`;
 
-    // Redirect to WhatsApp
+    // Open WhatsApp chat
     let url = `https://wa.me/${whatsappNumber}?text=${text}`;
     window.open(url, "_blank"); 
   });
